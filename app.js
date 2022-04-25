@@ -20,17 +20,17 @@ app.get("/", function (req, res) {
 
 })
 app.post("/", function (req, res) {
-    const url = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,USDT,BUSD,BNB,DOGE&tsyms=USDT,INR,BTC";
+    const url = "https://api.binance.com/api/v3/ticker/24hr";
     https.get(url, function (response) {
         response.on("data", function (data) {
             const cryptoData = JSON.parse(data);
-            const FROMSYMBOL = cryptoData.RAW.BTC.USDT.FROMSYMBOL;
-            // res.write("<h1>FROM SYMBOL : <h1>" + FROMSYMBOL);
+            const SYMBOL = cryptoData.0.symbol;
+       
             // res.send()
-            const TOSYMBOL = cryptoData.RAW.BTC.USDT.TOSYMBOL;
-            const PRICE = cryptoDataRAW.BTC.USDT.PRICE;
+            
+            const PRICE = cryptoData.0.askPrice;
 
-            func.saveCrypto(FROMSYMBOL, TOSYMBOL, PRICE);
+            func.saveCrypto(SYMBOL, PRICE);
 
         })
     })
