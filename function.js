@@ -1,8 +1,7 @@
 const mongo = require('../Project3/mongo');
-const saveCrypto = async (fromSymbol, toSymbol, price) => {
+const saveCrypto = async (symbol, price) => {
     const product = new mongo({
-        FROMSYMBOL: fromSymbol,
-        TOSYMBOL: toSymbol,
+        SYMBOL: symbol,
         PRICE: price,
     });
 
