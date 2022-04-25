@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const { float } = require("webidl-conversions");
 const cryptoSchema = new mongoose.Schema({
-    FROMSYMBOL: String,
-    TOSYMBOL: String,
+    SYMBOL: String,
     PRICE: Number,
 
 });
